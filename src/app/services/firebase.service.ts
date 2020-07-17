@@ -23,19 +23,19 @@ export class FirebaseService {
     private firestore: AngularFirestore
   ) { }
 
-  create_product(record) {
-    return this.firestore.collection(this.collectionName).add(record);
-  }
+  //create_product(record) {
+    //return this.firestore.collection(this.collectionName).add(record);
+  //}
 
-  read_products() {
-    return this.firestore.collection(this.collectionName).snapshotChanges();
-  }
+  //read_products() {
+    //return this.firestore.collection(this.collectionName).snapshotChanges();
+  //}
 
-  update_product(recordID, record) {
-    this.firestore.doc(this.collectionName + '/' + recordID).update(record);
-  }
+  //update_product(recordID, record) {
+    //this.firestore.doc(this.collectionName + '/' + recordID).update(record);
+  //}
 
-  delete_product(record_id) {
-    this.firestore.doc(this.collectionName + '/' + record_id).delete();
-  }
+  //delete_product(record_id) {
+   // this.firestore.doc(this.collectionName + '/' + record_id).delete();
+  //}
 }
