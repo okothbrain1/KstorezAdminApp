@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Products
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-subtitle>Add Product</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+      <form class="ion-padding" (submit)="addProduct()">
+        <ion-item>
+          <ion-label position="stacked">Product Name</ion-label>
+          <ion-input name="productName" [(ngModel)]="ProductName" placeholder="product Name" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="stacked">Description</ion-label>
+          <ion-input name="description" [(ngModel)]="Description" placeholder="todo" required></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label position="stacked">Price</ion-label>
+          <ion-input name="Price" [(ngModel)]="Price" placeholder="Price" required></ion-input>
+        </ion-item>
+
+        <ion-item lines="none">
+          <input type="file" name="inputFile" (change)="chooseFile($event)" required>
+        </ion-item>
+    
+        <ion-button type="submit">Add Product</ion-button>
+      </form>
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-list>
+    <ion-item *ngFor="let item of items | async">
+      <ion-thumbnail slot="start" *ngIf="item.imageUrl">
+        <img [src]="item.imageUrl" alt="image">
+      </ion-thumbnail>
+      <ion-label>{{ item.Description }}</ion-label>
+      <ion-label>{{ item.ProductName }}</ion-label>
+      <ion-label>{{ item.Price }}</ion-label>
+      <ion-button slot="end" fill="clear" color="danger" (click)="remove(item)">
+        <ion-icon slot="icon-only" name="trash"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+
+</ion-content>
+
